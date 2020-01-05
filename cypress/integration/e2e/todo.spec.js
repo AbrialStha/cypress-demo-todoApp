@@ -5,14 +5,24 @@
  */
 
 describe("Todo User Stories all in single spec file", () => {
+  beforeEach(() => {
+    cy.server();
+    cy.route("GET", "/api/todos", "fixture:todos.json").as("getTodos");
+    cy.route("POST", "/api/todo", "fixture:addTodo.json").as("addTodo");
+    cy.route("DELETE", "/api/todo/*", { msg: "It works" }).as("deleteTodo");
+  });
+
   it("User can see an input field where he can type in a to-do item", () => {
     cy.visit("/");
-    cy.get(".input-group-text")
-      .should("exist")
-      .type("Is Typeable");
+    cy.wait("@getTodos").then(xhr => {
+      cy.get(".input-group-text")
+        .should("exist")
+        .type("Is Typeable");
+    });
   });
 
   it("By pressing a button, the User can submit the to-do item and can see that being added to a list of to-do’s", () => {
+    cy.visit("/");
     cy.get(".input-group-text")
       .clear()
       .type("New Todo");
@@ -71,9 +81,11 @@ describe("Todo User Stories all in single spec file", () => {
       .contains("Delete")
       .should("exist")
       .click();
-    //the todo should not exist
-    cy.get(".table")
-      .contains("New Todo")
-      .should("not.exist");
+    cy.wait("@deleteTodo").then(xhr => {
+      //the todo should not exist
+      cy.get(".table")
+        .contains("New Todo")
+        .should("not.exist");
+    });
   });
 });

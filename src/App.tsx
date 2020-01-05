@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css'
 import TextField from './Components/TextField';
 import { View, Todos, Todo } from './Components/view';
+import { getTodos, addTodo, deleteTodo } from './utils/Request'
 
 class App extends Component<{}, any> {
   constructor(props: Todos) {
@@ -9,6 +10,14 @@ class App extends Component<{}, any> {
     this.state = {
       "todos": []
     }
+  }
+
+  componentDidMount() {
+    getTodos().then(resp => {
+      this.setState({
+        todos: resp
+      })
+    })
   }
 
   addTodo: (todo: string) => void = (todo: string) => {
@@ -23,15 +32,20 @@ class App extends Component<{}, any> {
       "title": todo,
       "completed": false
     }
-    this.setState({
-      todos: [...todos, new_todo]
+
+    addTodo(new_todo).then(resp => {
+      this.setState({
+        todos: [...todos, resp]
+      })
     })
   }
 
   deleteTodo: (id: number) => void = (id: number) => {
     let new_todos = this.state.todos.filter((todo: Todo) => todo.id != id)
-    this.setState({
-      todos: new_todos
+    deleteTodo(id).then(resp => {
+      this.setState({
+        todos: new_todos
+      })
     })
   }
 
