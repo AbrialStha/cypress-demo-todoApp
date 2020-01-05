@@ -7,25 +7,19 @@ class App extends Component<{}, any> {
   constructor(props: Todos) {
     super(props)
     this.state = {
-      "todos": [
-        {
-          "id": 1,
-          "title": "Do something",
-          "completed": false
-        },
-        {
-          "id": 2,
-          "title": "something Done",
-          "completed": true
-        }
-      ]
+      "todos": []
     }
   }
 
   addTodo: (todo: string) => void = (todo: string) => {
     let todos = this.state.todos
+    let new_id;
+    if (todos.length > 0)
+      new_id = todos[todos.length - 1].id + 1
+    else
+      new_id = 0
     let new_todo = {
-      "id": todos[todos.length - 1].id + 1,
+      "id": new_id,
       "title": todo,
       "completed": false
     }
