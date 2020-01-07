@@ -13,7 +13,7 @@ class App extends Component<{}, any> {
   }
 
   componentDidMount() {
-    getTodos().then(resp => {
+    getTodos().then((resp: Todos) => {
       this.setState({
         todos: resp
       })
@@ -33,7 +33,7 @@ class App extends Component<{}, any> {
       "completed": false
     }
 
-    addTodo(new_todo).then(resp => {
+    addTodo(new_todo).then((resp: Todo) => {
       this.setState({
         todos: [...todos, resp]
       })
@@ -42,7 +42,7 @@ class App extends Component<{}, any> {
 
   deleteTodo: (id: number) => void = (id: number) => {
     let new_todos = this.state.todos.filter((todo: Todo) => todo.id != id)
-    deleteTodo(id).then(resp => {
+    deleteTodo(id).then((resp: Todos) => {
       this.setState({
         todos: new_todos
       })
