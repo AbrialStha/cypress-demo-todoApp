@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="main container"
+>
+  <h1>
+    Simple Todo App
+  </h1>
+  <div
+    className="input-group mb-3"
+  >
+    <input
+      className="input-group-text"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "60%",
+        }
+      }
+      type="text"
+      value=""
+    />
+    <div
+      className="input-group-append"
+    >
+      <button
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        Add
+      </button>
+    </div>
+  </div>
+  <br />
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={
+            Object {
+              "width": "50px",
+            }
+          }
+        >
+          <input
+            defaultChecked={false}
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          Do something
+        </td>
+        <td
+          style={
+            Object {
+              "width": "120px",
+            }
+          }
+        >
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td
+          style={
+            Object {
+              "width": "50px",
+            }
+          }
+        >
+          <input
+            defaultChecked={true}
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "textDecoration": "line-through",
+            }
+          }
+        >
+          <span>
+            <span
+              className="badge badge-pill badge-success"
+            >
+              completed
+            </span>
+             
+          </span>
+          something Done
+        </td>
+        <td
+          style={
+            Object {
+              "width": "120px",
+            }
+          }
+        >
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`matches snapshot without the two todos 1`] = `
+<div
+  className="main container"
+>
+  <h1>
+    Simple Todo App
+  </h1>
+  <div
+    className="input-group mb-3"
+  >
+    <input
+      className="input-group-text"
+      onChange={[Function]}
+      style={
+        Object {
+          "width": "60%",
+        }
+      }
+      type="text"
+      value=""
+    />
+    <div
+      className="input-group-append"
+    >
+      <button
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        Add
+      </button>
+    </div>
+  </div>
+  <br />
+  <table
+    className="table"
+  >
+    <tbody>
+      <tr>
+        <td
+          style={
+            Object {
+              "width": "50px",
+            }
+          }
+        >
+          <input
+            defaultChecked={false}
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+        >
+          Do something
+        </td>
+        <td
+          style={
+            Object {
+              "width": "120px",
+            }
+          }
+        >
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td
+          style={
+            Object {
+              "width": "50px",
+            }
+          }
+        >
+          <input
+            defaultChecked={true}
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </td>
+        <td
+          style={
+            Object {
+              "textDecoration": "line-through",
+            }
+          }
+        >
+          <span>
+            <span
+              className="badge badge-pill badge-success"
+            >
+              completed
+            </span>
+             
+          </span>
+          something Done
+        </td>
+        <td
+          style={
+            Object {
+              "width": "120px",
+            }
+          }
+        >
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

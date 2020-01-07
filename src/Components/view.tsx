@@ -18,9 +18,9 @@ export const View: FC<Todos> = ({ todos, deleteTodo, toogleTodo }) => {
             {
                 todos.map(todo => {
                     return (
-                        <tr>
+                        <tr key={todo.id}>
                             <td style={{ width: "50px" }}>
-                                <input type="checkbox" checked={todo.completed} onClick={() => toogleTodo(todo.id)} />
+                                <input type="checkbox" defaultChecked={todo.completed} onClick={() => toogleTodo(todo.id)} />
                             </td>
                             <td style={{ textDecoration: `${todo.completed ? "line-through" : "none"}` }}>
                                 {
