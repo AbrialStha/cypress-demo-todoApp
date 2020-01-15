@@ -65,10 +65,10 @@ Output of coverage after test run can be fond in ```coverage\Icov-report\```
 
 
 ## References
-https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
-https://www.cypress.io/blog/2019/12/03/guest-post-writing-e2e-tests-without-breaking-your-development-flow/#testingiskey
-https://www.cypress.io/blog/2019/12/06/use-meaningful-smoke-tests/
-https://www.cypress.io/blog/2019/12/18/webcast-recording-how-siemens-sw-hub-increased-their-test-productivity/
-https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
+- https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
+- https://www.cypress.io/blog/2019/12/03/guest-post-writing-e2e-tests-without-breaking-your-development-flow/#testingiskey
+- https://www.cypress.io/blog/2019/12/06/use-meaningful-smoke-tests/
+- https://www.cypress.io/blog/2019/12/18/webcast-recording-how-siemens-sw-hub-increased-their-test-productivity/
+- https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
 
 
