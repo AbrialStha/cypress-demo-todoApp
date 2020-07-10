@@ -9,7 +9,7 @@ workflows:
   build:
     jobs:
       - cypress/run
-        install-command: npm install
+          install-command: npm install
         # executor: cypress/base-10
         # start: npm start
         # wait-on: 'http://localhost:3000'
