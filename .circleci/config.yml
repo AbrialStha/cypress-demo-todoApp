@@ -6,10 +6,10 @@ workflows:
     jobs:
       - cypress/run:
         install-command: npm install
-        executor: cypress/base-10
+        # executor: cypress/base-10
         start: npm start
         wait-on: "http://localhost:3000"
-        post-steps:
-          - store_test_results:
-              path: cypress/results
-        store_artifacts: true
+        # post-steps:
+        #   - store_test_results:
+        #       path: cypress/results
+        # store_artifacts: true
