@@ -35,7 +35,7 @@ class App extends Component<{}, any> {
   }
 
   deleteTodo: (id: number) => void = (id: number) => {
-    let new_todos = this.state.todos.filter((todo: Todo) => todo.id != id)
+    let new_todos = this.state.todos.filter((todo: Todo) => todo.id !== id)
     this.setState({
       todos: new_todos
     })
@@ -43,10 +43,11 @@ class App extends Component<{}, any> {
 
   toogleTodo: (id: number) => void = (id: number) => {
     let new_todos = this.state.todos.map((todo: Todo) => {
-      if (todo.id == id) {
+      if (todo.id === id) {
         todo.completed = !todo.completed
         return todo
       }
+      return
     })
     this.setState({
       todo: [...new_todos]

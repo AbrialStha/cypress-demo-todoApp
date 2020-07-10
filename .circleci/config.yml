@@ -1,19 +1,27 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-      - image: cypress/base:12
-    working_directory: ~/app
-    steps:
-      - checkout
-      - run: yarn install
-      # run unit tests
-      # - run: yarn test
-      - run:
-          name: Background the app
-          command: yarn start
-          background: true
-      - run:
-          name: Run E2E tests
-          command: $(npm bin)/cypress run
-          when: on_success
+      - image: circleci/node:10.16.0
+
+    working_directory: ~/repo
+steps:
+  - checkout
+
+  - restore_cache:
+    keys:
+      - v1-dependencies-{{ checksum "package.json" }}
+      - v1-dependencies-
+
+  - run: yarn install
+
+  - save_cache:
+    paths:
+      - node_modules
+      - ~/.npm
+      - ~/.cache
+    key: v1-dependencies-{{ checksum "package.json" }}
+
+  - run: yarn build
+
+  - run: npm run test:integration
