@@ -8,11 +8,11 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run # "run" job comes from "cypress" orb
+      - cypress/run
         install-command: npm install
-        executor: cypress/base-10
-        start: npm start
-        wait-on: 'http://localhost:3000'
+        # executor: cypress/base-10
+        # start: npm start
+        # wait-on: 'http://localhost:3000'
       # post-steps:
       #   - store_test_results:
       #       path: cypress/results
