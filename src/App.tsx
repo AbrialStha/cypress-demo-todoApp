@@ -22,7 +22,7 @@ class App extends Component<{}, any> {
     }
   }
 
-  addTodo: (todo: string) => void = (todo: string) => {
+  addTodo = (todo: string) => {
     let todos = this.state.todos
     let new_todo = {
       "id": todos[todos.length - 1].id + 1,
@@ -34,20 +34,19 @@ class App extends Component<{}, any> {
     })
   }
 
-  deleteTodo: (id: number) => void = (id: number) => {
+  deleteTodo = (id: number) => {
     let new_todos = this.state.todos.filter((todo: Todo) => todo.id !== id)
     this.setState({
       todos: new_todos
     })
   }
 
-  toogleTodo: (id: number) => void = (id: number) => {
+  toogleTodo = (id: number) => {
     let new_todos = this.state.todos.map((todo: Todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed
-        return todo
       }
-      return
+      return todo
     })
     this.setState({
       todo: [...new_todos]

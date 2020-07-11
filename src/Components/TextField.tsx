@@ -1,4 +1,4 @@
-import React, { useRef, Component } from 'react'
+import React, { Component } from 'react'
 
 interface Props {
     addTodo: (todo: string) => void
