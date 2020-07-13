@@ -10,19 +10,15 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-
       - run:
           name: Install serve
           command: yarn global add serve
-
-      -run:
+      - run:
           name: Insall libXtst package 6
           command: sudo apt-get install libXtst
-
       - run:
           name: Install libxss package required by cypress
           command: sudo apt-get install libxss1
-
       - run:
           name: Install dependencies
           command: yarn install
@@ -32,7 +28,7 @@ jobs:
       - run:
           name: Cypress Test
           command: yarn cy:run
-          
+
 workflows:
   version: 2.1
   build:
