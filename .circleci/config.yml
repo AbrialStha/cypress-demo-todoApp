@@ -16,7 +16,7 @@ jobs:
           command: yarn global add serve
 
       -run:
-          name: Insall libxss package 6
+          name: Insall libXtst package 6
           command: sudo apt-get install libXtst
 
       - run:
