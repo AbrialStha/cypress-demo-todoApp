@@ -20,7 +20,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --record --key=abc123",
     "eject": "react-scripts eject",
-    "test": "start-server-and-test start http://localhost:3000 cypress:run"
+    "test": "start-server-and-test start http://localhost:3000 cypress:run",
+    "cy:run": "start-server-and-test 'serve -s build' 5000 'CYPRESS_BASE_URL=http://localhost:5000 cypress run'"
   },
   "eslintConfig": {
     "extends": "react-app"
