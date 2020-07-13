@@ -30,6 +30,7 @@ jobs:
           command: yarn cy:run
           
 workflows:
-  test-webapp:
+  version: 2.1
+  build:
     jobs:
       - test-webapp
