@@ -10,10 +10,15 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      
+
       - run:
           name: Install serve
           command: yarn global add serve
+
+      -run:
+          name: Insall libxss package 6
+          command: sudo apt-get install libxtst6
+
       - run:
           name: Install libxss package required by cypress
           command: sudo apt-get install libxss1
