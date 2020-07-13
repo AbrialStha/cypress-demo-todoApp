@@ -28,9 +28,8 @@ jobs:
       - run:
           name: Cypress Test
           command: yarn cy:run
-
+          
 workflows:
-  version: 2.1
-  frontend-workflow:
+  test-webapp:
     jobs:
       - test-webapp
