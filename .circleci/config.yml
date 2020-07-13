@@ -1,26 +1,36 @@
+defaults: &defaults
+  docker:
+    - image: circleci/node:10.16.0
+  working_directory: ~/repo
+
 version: 2.1
 jobs:
-  build:
-    docker:
-      - image: circleci/node:10.16.0
-
+  test-webapp:
+    <<: *defaults
     working_directory: ~/repo
-steps:
-  - checkout
+    steps:
+      - checkout
+      - set_path
 
-  - restore_cache:
-    keys:
-      - v1-dependencies-{{ checksum "package.json" }}
-      - v1-dependencies-
+      - run:
+          name: Install serve
+          command: yarn global add serve
+      - run:
+          name: Install libxss package required by cypress
+          command: sudo apt-get install libxss1
 
-  - run: yarn install
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - run:
+          name: Generate build test
+          command: yarn build
+      - run:
+          name: Cypress Test
+          command: yarn cy:run
 
-  - save_cache:
-    paths:
-      - node_modules
-      - ~/.npm
-      - ~/.cache
-    key: v1-dependencies-{{ checksum "package.json" }}
-
-  - run: yarn add global serve
-  - run: yarn cy:run
+workflows:
+  version: 2.1
+  frontend-workflow:
+    jobs:
+      - test-webapp
