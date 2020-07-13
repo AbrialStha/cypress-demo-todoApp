@@ -14,9 +14,6 @@ jobs:
           name: Install serve
           command: yarn global add serve
       - run:
-          name: Insall libXtst package 6
-          command: sudo apt-get install libXtst
-      - run:
           name: Install libxss package required by cypress
           command: sudo apt-get install libxss1
       - run:
