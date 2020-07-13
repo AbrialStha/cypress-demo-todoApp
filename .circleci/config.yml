@@ -1,30 +1,34 @@
-defaults: &defaults
-  docker:
-    - image: cypress/base:12.16.1
-  working_directory: ~/repo
-
 version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.23.0
 jobs:
-  test-webapp:
-    <<: *defaults
+  build:
+    docker:
+      - image: circleci/node:12.9.1-browsers
     working_directory: ~/repo
+
     steps:
       - checkout
-      - run:
-          name: Install serve
-          command: yarn global add serve
-      - run:
-          name: Install dependencies
-          command: yarn install
-      - run:
-          name: Generate build test
-          command: yarn build
-      - run:
-          name: Cypress Test
-          command: yarn cy:run
 
-workflows:
-  version: 2.1
-  build:
-    jobs:
-      - test-webapp
+      -restore_cache:
+        - v1-dependencies-{{ checksum "package.json" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+        paths:
+          - node_modules
+          - ~/.npm
+          - ~/.cache
+        key: v1-dependencies-{{ checksum "package.json" }}
+      
+      - snyk/scan:
+         fail-on-issues: false
+         monitor-on-build: false
+         severity-threshold: high
+
+      - run: yarn lint
+
+      - run: yarn size
+
+      - run: yarn test

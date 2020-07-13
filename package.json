@@ -15,10 +15,11 @@
   },
   "scripts": {
     "start": "react-scripts -r @cypress/instrument-cra start",
+    "start:prod": "serve -s build",
     "build": "react-scripts build",
     "test_react": "react-scripts test",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --record --key=abc123",
+    "cypress:run": "cypress run",
     "eject": "react-scripts eject",
     "test": "start-server-and-test start http://localhost:3000 cypress:run",
     "cy:run": "start-server-and-test 'serve -s build' 5000 'CYPRESS_BASE_URL=http://localhost:5000 cypress run'"
