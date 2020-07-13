@@ -17,7 +17,7 @@ jobs:
 
       -run:
           name: Insall libxss package 6
-          command: sudo apt-get install libxtst6
+          command: sudo apt-get install libXtst
 
       - run:
           name: Install libxss package required by cypress
