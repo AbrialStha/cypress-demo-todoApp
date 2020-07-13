@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node:10.16.0
+  node: circleci/node@10.16.0
 jobs:
   build-and-test:
     executor:
@@ -10,7 +10,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: yarn install
-            - run: yarn global add serve
+            - run: yarn add serve
             - run: yarn build
             - run: yarn cy:run
 workflows:
