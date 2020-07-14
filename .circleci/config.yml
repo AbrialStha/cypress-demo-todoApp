@@ -10,5 +10,9 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+      - store_artifacts:
+          path: coverage
+      - store_test_results:
+          path: results
     working_directory: ~/repo
 version: 2.1

@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test_react": "react-scripts test",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:run": "cypress run --reporter junit --reporter-options mochaFile=results/my-test-output.xml",
     "eject": "react-scripts eject",
     "test": "start-server-and-test start http://localhost:3000 cypress:run"
   },
