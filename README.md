@@ -2,6 +2,10 @@
 
 A app to demonstrate how to use cypress with create-react-app --typescript
 
+# Example:
+
+[![CircleCI](https://circleci.com/gh/AbrialStha/cypress-demo-todoApp.svg?style=svg)](https://circleci.com/gh/AbrialStha/cypress-demo-todoApp)
+
 ## User Stories
 
 - User can see an input field where he can type in a to-do item
@@ -10,11 +14,12 @@ A app to demonstrate how to use cypress with create-react-app --typescript
 - User can remove a to-do item by pressing on a button
 
 ## Installing & running Cypress
+
 Installation
-```npm i -D cypress```
-Running 
-```cypress open```
-```npm run cypress:open```
+`npm i -D cypress`
+Running
+`cypress open`
+`npm run cypress:open`
 
 ## Folder Structure
 
@@ -28,10 +33,10 @@ cypress (Main Folder at the root)
 
 - support (support command similar to utils function)
 
-
-
 ## For Network Stubbing
+
 Check branch feature/api in todo.spec.js file
+
 ```
  beforeEach(() => {
     cy.server();
@@ -42,33 +47,40 @@ Check branch feature/api in todo.spec.js file
 ```
 
 ## For Code Coverage in create_react_app
+
 Install the cypress Plugins and some dependencies
+
 ```
 npm i -D @cypress/instrument-cra
 npm i -D @cypress/code-coverage nyc istanbul-lib-coverage
 ```
-Add codecoverage support command in ```cypress/support/index.js```
+
+Add codecoverage support command in `cypress/support/index.js`
+
 ```
 import '@cypress/code-coverage/support'
 ```
-Register tasks in your ```cypress/plugins/index.js``` file
+
+Register tasks in your `cypress/plugins/index.js` file
+
 ```
 module.exports = (on, config) => {
   on('task', require('@cypress/code-coverage/task'))
 }
 ```
+
 Running the app with code coverage
+
 ```
 react-scripts -r @cypress/instrument-cra start
 ```
-Output of coverage after test run can be fond in ```coverage\Icov-report\```
 
+Output of coverage after test run can be fond in `coverage\Icov-report\`
 
 ## References
+
 - https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell
 - https://www.cypress.io/blog/2019/12/03/guest-post-writing-e2e-tests-without-breaking-your-development-flow/#testingiskey
 - https://www.cypress.io/blog/2019/12/06/use-meaningful-smoke-tests/
 - https://www.cypress.io/blog/2019/12/18/webcast-recording-how-siemens-sw-hub-increased-their-test-productivity/
 - https://www.cypress.io/blog/2019/09/05/cypress-code-coverage-for-create-react-app-v3/
-
-
