@@ -7,6 +7,8 @@ jobs:
       - run: "yarn install"
       - run: "yarn test"
       - store_artifacts:
-          path: ~repo/coverage
+        path: cypress/videos
+    - store_artifacts:
+        path: cypress/screenshots
     working_directory: ~/repo
 version: 2.1
