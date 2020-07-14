@@ -5,8 +5,11 @@ jobs:
     steps:
       - checkout
       - run: "yarn install"
-      - run: "yarn test"
+      - run: "yarn start"
     working_directory: ~/repo
+    jobs:
+      - cypress/run:
+          config: "pageLoadTimeout=100000,watchForFileChanges=false"
 orbs:
   cypress: cypress-io/cypress@1.23.0
 version: 2.1
