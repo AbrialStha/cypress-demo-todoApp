@@ -15,14 +15,12 @@
   },
   "scripts": {
     "start": "react-scripts -r @cypress/instrument-cra start",
-    "start:prod": "serve -s build",
     "build": "react-scripts build",
     "test_react": "react-scripts test",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "eject": "react-scripts eject",
-    "test": "start-server-and-test start http://localhost:3000 cypress:run",
-    "cy:run": "start-server-and-test 'serve -s build' 5000 'CYPRESS_BASE_URL=http://localhost:5000 cypress run'"
+    "test": "start-server-and-test start http://localhost:3000 cypress:run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,7 +42,6 @@
     "@cypress/instrument-cra": "^1.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
-    "cypress": "^3.8.1",
     "istanbul-lib-coverage": "^3.0.0",
     "jest-dom": "^4.0.0",
     "nyc": "^15.0.0",
